@@ -15,6 +15,7 @@
   <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" type="text/css" href="libs/addtohomescreen.css">
+  <link rel="stylesheet" type="text/css" href="libs/animate.min.css">
   <script src="libs/addtohomescreen.js"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -29,10 +30,16 @@
 
 <body>
   <div id="order-drink-app">
-    <div id="drink-list" class="row"></div>
-    <ul id="order-list" class="list-group hidden"></ul>
+    <div class="row header">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <h1>Order Drinks</h1>
+      </div>
+    </div>
+    <div id="drink-list" class="row animated faster fadeIn"></div>
+    <div class="ok-spacing"></div>
+    <ul id="order-list" class="list-group animated faster fadeIn"></ul>
     <div class="sticky-bottom-right">
-      <div class="btn btn-success round-botton toggle-view"><span class="align-center">OK</span></div>
+      <div class="btn ok toggle-view">OK</div>
     </div>
   </div>
 
@@ -46,15 +53,17 @@
   <script src="orderdrink.js"></script>  
 
   <script type="text/template" id="drink-template">
-    <div class="col-sm-4 col-md-4 col-lg-4">
-      <div class="btn metro btn-sq-lg btn-primary plus"><%- name%></div>
-      <div class="btn btn-sq btn-warning top-right minus"><%- num%></div>
+    <div class="col-sm-6 col-md-6 col-lg-6 cell animated faster pulse">
+      <div class="row">
+        <div class="btn metro btn-sq-lg plus"><%- name%></div>
+        <div class="btn btn-sq minus"><%- num%></div>
+      </div>
     </div>
   </script>
 
   <script type="text/template" id="order-template">
-    <li class="list-group-item large-item">
-      <%- name%><span class="badge"><%- num%></span>
+    <li class="list-group-item item">
+      <%- name%><span class="item-count"><%- num%></span>
     </li>
   </script>
 </body>

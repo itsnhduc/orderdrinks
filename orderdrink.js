@@ -78,21 +78,25 @@ $(function(){
     toggleView: function() {
       var dl = this.$('#drink-list');
       var ol = this.$('#order-list');
-      if (dl.hasClass('hidden')) {
-        dl.removeClass('hidden');
+      var os = this.$('.ok-spacing');
+      if (dl.is(':hidden')) {
+        os.show();
+        dl.show();
       } else {
-        dl.addClass('hidden');
+        dl.hide();
       }
 
-      if (ol.hasClass('hidden')) {
-        ol.removeClass('hidden');
+      if (ol.is(':hidden')) {
+        os.hide();
+        ol.show();
       } else {
-        ol.addClass('hidden');
+        ol.hide();
       }
     },
     initialize: function() {
       this.listenTo(orders, 'change', this.renderOrders);
-    	this.render();
+      this.render();
+      this.$('#order-list').hide();
     },
     renderDrink: function(drink) {
       var view = new DrinkView({model: drink});
@@ -107,10 +111,10 @@ $(function(){
       this.$('#order-list').empty()
       var orderList = orders.orderList()
       if (orderList.length) {
-        toggleBtn.removeClass('hidden');
+        toggleBtn.show();
         _.each(orderList, this.renderOrder, this);
       } else {
-        toggleBtn.addClass('hidden');
+        toggleBtn.hide();
       }
     },
     render: function() {

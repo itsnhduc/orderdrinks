@@ -1,72 +1,102 @@
+@font-face {
+    font-family: "SF Espresso Shack";
+    src: url("fonts/SFEspressoShack.ttf");
+}
+
+@font-face {
+    font-family: "STRATEGYCIDE";
+    src: url("fonts/STRATEGYCIDE.ttf");
+}
+
 .btn-sq-lg {
-  width: 300px;
-  height: 300px;
-  line-height:50px;
-  padding: 90px;
-  border-radius: 100px;
   overflow:visible;
   font-size:50px;
   white-space: pre-wrap;
   word-break: keep-all;
-  margin-top:10px;
-  margin-left:5px;
-    perspective: 300px;
-    -webkit-perspective: 300px;
-    transition: 0.8s;
 }
 
-.btn-sq {
-  width: 100px;
-  height: 100px;
-  font-size: 50px;
-  border-radius: 180px;
+.header {
+    background-color: #230E0B;
+    text-align: center;
+    padding: 30px;
 }
 
-.top-right {
-    position: relative;
-    top: -310px;
-    left: 210px;
+.header h1 {
+    color: white;
+    font-family: "SF Espresso Shack", Arial, Helvetica, sans-serif;
+    font-size: 100px;
 }
 
-.sticky-bottom-right {
-	position:fixed;
-	right:0;
-	bottom:0;
+.ui-overlay-a {
+    padding: 20px;
+    background-color: #C28B64;
 }
 
-.round-botton {
-	width: 150px;
-	height: 150px;
+.ui-page {
+    background-color: #C28B64;
+}
+
+.plus,
+.plus:hover,
+.plus:focus {
+    background-color: #965A3E;
+    border-color: #965A3E;
+    font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    color: white;
+    line-height: 1;
+    display: table-cell;
+    vertical-align: middle;
+    height: 200px;
+    padding: 10px;
+    width: 90%;
+}
+
+.minus {
+    background-color: rgba(255, 255, 255, 0.3);
+    display: table-cell;
+    vertical-align: middle;
+    font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
+    font-size: 80px;
+    width: 10%;
+    color: white;
+}
+
+.cell {
+    padding: 20px 60px;
+}
+
+.ok,
+.ok:hover,
+.ok:focus {
+    width: 100vw;
+    height: 180px;
 	font-size: 50px;
-	border-radius: 180px;
+    font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
+    background-color: #230E0B;
+    border-top: 5px solid white;
+    font-size: 120px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: white;
 }
 
-.align-center {
-    position: relative;
-    top: 30px;
-    left: 0px;
+.ok-spacing {
+    height: 180px;
 }
 
-.large-item {
-	font-size:50px;
+.item {
+    font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
+    font-size: 100px;
+    background-color: #C28B64;
+    color: white;
+    padding: 10px 25px;
 }
 
-.large-item .badge {
-	font-size:50px;
-}
-
-.metro .back {
-    background-color: #61a84d;
-    transform:rotateY(180deg);
-    -webkit-transform:rotateY(180deg);
-}
- 
-.metro .btn-sq-lg:hover .front {
-    transform:rotateY(180deg);
-    -webkit-transform:rotateY(180deg);
-}
- 
-.metro .btn-sq-lg:hover .back {
-    transform:rotateY(360deg);
-    -webkit-transform:rotateY(360deg);
+.item-count {
+    font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
+    font-size: 100px;
+    color: #ddd;
+    float: right;
 }
