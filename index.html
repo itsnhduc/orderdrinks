@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Order Drinks</title>
+  <link rel="stylesheet" href="libs/bootstrap.min.css" />
+  <link rel="stylesheet" href="libs/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="orderdrink.css"/>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="manifest" href="icons/manifest.json">
+  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" type="text/css" href="libs/addtohomescreen.css">
+  <script src="libs/addtohomescreen.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-99109384-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body>
+  <div id="order-drink-app">
+    <div id="drink-list" class="row"></div>
+    <ul id="order-list" class="list-group hidden"></ul>
+    <div class="sticky-bottom-right">
+      <div class="btn btn-success round-botton toggle-view"><span class="align-center">OK</span></div>
+    </div>
+  </div>
+
+  <script src="libs/json2.min.js"></script>
+  <script src="libs/jquery-1.11.1.min.js"></script>
+  <script src="libs/underscore-min.js"></script>
+  <script src="libs/backbone-min.js"></script>
+  <script src="libs/backbone.localStorage-min.js"></script>
+  <script src="libs/jquery.mobile-1.4.5.min.js"></script>
+  <script src="drinks.js"></script>
+  <script src="orderdrink.js"></script>  
+
+  <script type="text/template" id="drink-template">
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="btn metro btn-sq-lg btn-primary plus"><%- name%></div>
+      <div class="btn btn-sq btn-warning top-right minus"><%- num%></div>
+    </div>
+  </script>
+
+  <script type="text/template" id="order-template">
+    <li class="list-group-item large-item">
+      <%- name%><span class="badge"><%- num%></span>
+    </li>
+  </script>
+</body>
+<script>
+  addToHomescreen();
+</script>
+</html>
