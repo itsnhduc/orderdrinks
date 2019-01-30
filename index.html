@@ -30,10 +30,19 @@
 
 <body>
   <div id="order-drink-app">
-    <div class="row header">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <h1>Order Drinks</h1>
-      </div>
+    <div class="header">
+      <h1>Order Drinks</h1>
+    </div>
+    <div class="legend row animated faster">
+      <div class="col-sm-2 col-md-2 col-lg-2 category-color cold">&nbsp;</div>
+      <div class="col-sm-2 col-md-2 col-lg-2">Cold</div>
+      <div class="col-sm-2 col-md-2 col-lg-2 category-color hot">&nbsp;</div>
+      <div class="col-sm-2 col-md-2 col-lg-2">Hot</div>
+      <div class="col-sm-2 col-md-2 col-lg-2 category-color misc">&nbsp;</div>
+      <div class="col-sm-2 col-md-2 col-lg-2">Misc</div>
+      <span class="close-legend">
+        <span class="close-legend-btn">&times;</span>
+      </span>
     </div>
     <div id="drink-list" class="row animated faster fadeIn"></div>
     <div class="ok-spacing"></div>
@@ -50,20 +59,23 @@
   <script src="libs/backbone.localStorage-min.js"></script>
   <script src="libs/jquery.mobile-1.4.5.min.js"></script>
   <script src="drinks.js"></script>
-  <script src="orderdrink.js"></script>  
+  <script src="orderdrink.js"></script>
 
   <script type="text/template" id="drink-template">
-    <div class="col-sm-12 col-md-12 col-lg-6 animated faster pulse">
+    <div class="col-sm-6 col-md-6 col-lg-6 animated faster pulse">
       <div class="row cell">
-        <div class="col-sm-11 col-md-11 col-lg-11 btn metro btn-sq-lg plus text-center-container"><%- name%></div>
-        <div class="col-sm-1 col-md-1 col-lg-1 btn btn-sq minus text-center-container"><%- num%></div>
+        <div class="col-sm-10 col-md-10 col-lg-10 btn metro btn-sq-lg plus <%- category%> text-center-container"><%- name%></div>
+        <div class="col-sm-2 col-md-2 col-lg-2 btn btn-sq minus text-center-container"><%- num%></div>
       </div>
     </div>
   </script>
 
   <script type="text/template" id="order-template">
-    <li class="list-group-item item">
-      <%- name%><span class="item-count"><%- num%></span>
+    <li class="list-group-item item <%- category%>">
+      <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10"><%- name%></div>
+        <div class="col-sm-2 col-md-2 col-lg-2 item-count"><%- num%></div>
+      </div>
     </li>
   </script>
 </body>

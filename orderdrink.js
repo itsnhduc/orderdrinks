@@ -1,21 +1,23 @@
 $(function(){
   $.event.special.tap.emitTapOnTaphold = false;
   $.event.special.tap.tapholdThreshold = 500;
+
+  var AnimationEndEvent = 'animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd';
   
   var Drink = Backbone.Model.extend({
     defaults: function() {
       return {
-        name: "(empty)",
-        category: "Misc",
+        name: '(empty)',
+        category: 'Misc',
         num: 0
       };
     },
     plus: function() {
-      var cur = this.get("num")
+      var cur = this.get('num')
       this.save({num: cur+1});
     },
     minus: function() {
-   	  var cur = this.get("num")
+   	  var cur = this.get('num')
       this.save({num: cur <= 0 ? 0 : cur-1})
     },
     rename: function(name) {
@@ -25,7 +27,7 @@ $(function(){
 
   var Orders = Backbone.Collection.extend({
   	model: Drink,
-  	localStorage: new Backbone.LocalStorage("drink-orders"),
+  	localStorage: new Backbone.LocalStorage('drink-orders'),
   	orderList: function() {
       return this.filter(function(drink) {
       	return drink.get('num') > 0;
@@ -38,9 +40,9 @@ $(function(){
   var DrinkView = Backbone.View.extend({
   	template: _.template($('#drink-template').html()),
 	  events: {
-      "tap .plus" : "order",
-      "tap .minus" : "minus",
-      "taphold .plus" : "rename"
+      'tap .plus' : 'order',
+      'tap .minus' : 'minus',
+      'taphold .plus' : 'rename'
     },
     initialize: function() {
       this.listenTo(this.model, 'change', this.render);
@@ -52,7 +54,7 @@ $(function(){
     	this.model.minus();
     },
     rename:function(e){
-      var name = prompt("Enter the name of your order",this.model.get("name"))
+      var name = prompt('Enter the name of your order',this.model.get('name'))
       if (name != null) {
         this.model.rename(name)
       }
@@ -72,9 +74,10 @@ $(function(){
   });
 
   var AppView = Backbone.View.extend({
-  	el: $("#order-drink-app"),
+  	el: $('#order-drink-app'),
     events: {
-      "tap .toggle-view" : "toggleView"
+      'tap .toggle-view' : 'toggleView',
+      'tap .close-legend-btn' : 'closeLegend'
     },
     toggleView: function() {
       var dl = this.$('#drink-list');
@@ -94,6 +97,14 @@ $(function(){
         ol.hide();
       }
     },
+    closeLegend: function() {
+      var legend = this.$('.legend');
+      legend
+        .addClass('fadeOut')
+        .on(AnimationEndEvent, function(e) {
+          legend.hide();
+        });
+    },
     initialize: function() {
       this.listenTo(orders, 'change', this.renderOrders);
       this.render();
@@ -101,11 +112,11 @@ $(function(){
     },
     renderDrink: function(drink) {
       var view = new DrinkView({model: drink});
-      this.$("#drink-list").append(view.render().el);
+      this.$('#drink-list').append(view.render().el);
     },
     renderOrder: function(drink) {
       var view = new OrderView({model: drink});
-      this.$("#order-list").append(view.render().el);
+      this.$('#order-list').append(view.render().el);
     },
     renderOrders: function() {
       var toggleBtn = this.$('.toggle-view');
