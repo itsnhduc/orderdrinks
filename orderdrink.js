@@ -5,7 +5,8 @@ $(function(){
   var Drink = Backbone.Model.extend({
     defaults: function() {
       return {
-        name: "empty",
+        name: "(empty)",
+        category: "Misc",
         num: 0
       };
     },
@@ -37,8 +38,8 @@ $(function(){
   var DrinkView = Backbone.View.extend({
   	template: _.template($('#drink-template').html()),
 	  events: {
-      "click .plus" : "order",
-      "click .minus" : "minus",
+      "tap .plus" : "order",
+      "tap .minus" : "minus",
       "taphold .plus" : "rename"
     },
     initialize: function() {
@@ -73,7 +74,7 @@ $(function(){
   var AppView = Backbone.View.extend({
   	el: $("#order-drink-app"),
     events: {
-      "click .toggle-view" : "toggleView"
+      "tap .toggle-view" : "toggleView"
     },
     toggleView: function() {
       var dl = this.$('#drink-list');

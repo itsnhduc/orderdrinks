@@ -45,27 +45,18 @@
     font-size: 70px;
     color: white;
     line-height: 1;
-    display: table-cell;
-    vertical-align: middle;
     height: 200px;
-    padding: 10px;
-    width: 90%;
+    padding: 15px;
 }
 
 .minus,
 .minus:hover,
 .minus:focus {
     background-color: rgba(255, 255, 255, 0.3);
-    display: table-cell;
-    vertical-align: middle;
     font-family: "STRATEGYCIDE", Arial, Helvetica, sans-serif;
     font-size: 80px;
-    width: 10%;
+    height: 200px;
     color: white;
-}
-
-.cell {
-    padding: 20px 60px;
 }
 
 .ok,
@@ -101,4 +92,16 @@
     font-size: 100px;
     color: #ddd;
     float: right;
+}
+
+.cell {
+    margin: 10px 20px;
+}
+
+.text-center-container
+{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
 }
