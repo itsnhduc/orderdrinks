@@ -40,8 +40,8 @@ $(function(){
   var DrinkView = Backbone.View.extend({
   	template: _.template($('#drink-template').html()),
 	  events: {
-      'tap .plus' : 'order',
-      'tap .minus' : 'minus',
+      'click .plus' : 'order',
+      'click .minus' : 'minus',
       'taphold .plus' : 'rename'
     },
     initialize: function() {
@@ -76,8 +76,8 @@ $(function(){
   var AppView = Backbone.View.extend({
   	el: $('#order-drink-app'),
     events: {
-      'tap .toggle-view' : 'toggleView',
-      'tap .close-legend-btn' : 'closeLegend'
+      'click .toggle-view' : 'toggleView',
+      'click .close-legend-btn' : 'closeLegend'
     },
     toggleView: function() {
       var dl = this.$('#drink-list');
