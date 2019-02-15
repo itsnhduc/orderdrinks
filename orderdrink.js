@@ -82,16 +82,13 @@ $(function(){
     toggleView: function() {
       var dl = this.$('#drink-list');
       var ol = this.$('#order-list');
-      var os = this.$('.ok-spacing');
       if (dl.is(':hidden')) {
-        os.show();
         dl.show();
       } else {
         dl.hide();
       }
 
       if (ol.is(':hidden')) {
-        os.hide();
         ol.show();
       } else {
         ol.hide();
